@@ -7,7 +7,8 @@ import jakarta.persistence.*;
 public class Cliente {
 
     @Id
-    private int id_cliente;
+    @Column(name = "id_cliente")
+    private int idCliente;
 
     @Column(nullable = false)
     private String nombre;
@@ -16,12 +17,12 @@ public class Cliente {
     private String email;
 
     // Getters y Setters
-    public int getId_cliente() {
-        return id_cliente;
+    public int getIdCliente() {
+        return idCliente;
     }
 
-    public void setId_cliente(int id_cliente) {
-        this.id_cliente = id_cliente;
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
     }
 
     public String getNombre() {
@@ -38,5 +39,10 @@ public class Cliente {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return nombre; // Para mostrar en el JComboBox
     }
 }

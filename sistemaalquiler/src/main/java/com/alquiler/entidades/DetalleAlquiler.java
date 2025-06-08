@@ -4,15 +4,17 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "detalle_alquiler")
-@IdClass(DetalleAlquilerId.class)
 public class DetalleAlquiler {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_detalle")
+    private int idDetalle;
+
     @ManyToOne
     @JoinColumn(name = "id_alquiler")
     private Alquiler alquiler;
 
-    @Id
     @ManyToOne
     @JoinColumn(name = "id_pelicula")
     private Pelicula pelicula;
@@ -20,6 +22,14 @@ public class DetalleAlquiler {
     private int cantidad;
 
     // Getters y Setters
+    public int getIdDetalle() {
+        return idDetalle;
+    }
+
+    public void setIdDetalle(int idDetalle) {
+        this.idDetalle = idDetalle;
+    }
+
     public Alquiler getAlquiler() {
         return alquiler;
     }
@@ -44,4 +54,3 @@ public class DetalleAlquiler {
         this.cantidad = cantidad;
     }
 }
-

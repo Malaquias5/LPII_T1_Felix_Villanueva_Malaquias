@@ -7,7 +7,8 @@ import jakarta.persistence.*;
 public class Pelicula {
 
     @Id
-    private int id_pelicula;
+    @Column(name = "id_pelicula")
+    private int idPelicula;
 
     @Column(nullable = false)
     private String titulo;
@@ -16,13 +17,16 @@ public class Pelicula {
 
     private int stock;
 
+    @Column(nullable = false)
+    private double precio;
+
     // Getters y Setters
-    public int getId_pelicula() {
-        return id_pelicula;
+    public int getIdPelicula() {
+        return idPelicula;
     }
 
-    public void setId_pelicula(int id_pelicula) {
-        this.id_pelicula = id_pelicula;
+    public void setIdPelicula(int idPelicula) {
+        this.idPelicula = idPelicula;
     }
 
     public String getTitulo() {
@@ -48,5 +52,17 @@ public class Pelicula {
     public void setStock(int stock) {
         this.stock = stock;
     }
-}
 
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    @Override
+    public String toString() {
+        return titulo;
+    }
+}

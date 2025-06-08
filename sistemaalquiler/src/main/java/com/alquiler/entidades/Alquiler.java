@@ -10,7 +10,8 @@ public class Alquiler {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_alquiler;
+    @Column(name = "id_alquiler")
+    private int idAlquiler;
 
     @Temporal(TemporalType.DATE)
     private Date fecha;
@@ -21,16 +22,26 @@ public class Alquiler {
 
     private BigDecimal total;
 
+
     @Enumerated(EnumType.STRING)
     private EstadoAlquiler estado;
 
-    // Getters y Setters
-    public int getId_alquiler() {
-        return id_alquiler;
+    public EstadoAlquiler getEstado() {
+        return estado;
     }
 
-    public void setId_alquiler(int id_alquiler) {
-        this.id_alquiler = id_alquiler;
+    public void setEstado(EstadoAlquiler estado) {
+        this.estado = estado;
+    }
+
+
+    // Getters y Setters
+    public int getIdAlquiler() {
+        return idAlquiler;
+    }
+
+    public void setIdAlquiler(int idAlquiler) {
+        this.idAlquiler = idAlquiler;
     }
 
     public Date getFecha() {
@@ -55,13 +66,5 @@ public class Alquiler {
 
     public void setTotal(BigDecimal total) {
         this.total = total;
-    }
-
-    public EstadoAlquiler getEstado() {
-        return estado;
-    }
-
-    public void setEstado(EstadoAlquiler estado) {
-        this.estado = estado;
     }
 }
